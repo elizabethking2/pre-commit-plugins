@@ -139,3 +139,11 @@
     types:
       - c#
     pass_filenames: false
+
+  # - id: powershell-lint
+  #   name: powershell-lint
+  #   description: Check powershell source code
+  #   entry: script/powershell-lint.sh
+  #   language: script
+  #   types:
+  #     - ps

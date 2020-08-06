@@ -63,9 +63,21 @@ repos:
 
   # Example usage of dotnet-format: pre-commit run dotnet-format --all-files
   # To restrict to only listed directory add: args: [ path/to/a.csproj, path/to/b.csproj ]
-  - repo: https://github.com/improbable-eng/pre-commit-plugins/
-    rev: 0.1.3
+  # - repo: https://github.com/improbable-eng/pre-commit-plugins/
+  #   rev: 0.1.3
+  #   hooks:
+  #     - id: dotnet-format
+  #       args:
+  #         - samples/dotnet-hook-samples/Test.csproj
+  - repo: local
     hooks:
-      - id: dotnet-format
-        args:
-          - samples/dotnet-hook-samples/Test.csproj
+      - id: powershell-lint
+        name: powershell-lint
+        description: Check powershell source code
+        entry: script/powershell-lint.sh
+        language: script
+        types:
+          - file
+          - text
+        pass_filenames: false
+        files: ^.*.ps.*$
